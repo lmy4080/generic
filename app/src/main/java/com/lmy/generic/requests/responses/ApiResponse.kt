@@ -3,69 +3,6 @@ package com.lmy.generic.requests.responses
 import android.util.Log
 import retrofit2.Response
 import java.io.IOException
-/*
-
-*/
-/**
- * Generic class for handling responses from Retrofit
- * @param <T>
- *//*
-
-open class ApiResponse<T> {
-
-    fun create(error: Throwable): ApiResponse<T> {
-        var errorMsg = if (error.message == "") error.message else "Unknown error\nCheck network connection"
-        return ApiErrorResponse(errorMsg!!)
-    }
-
-    fun create(response: Response<T>): ApiResponse<T> {
-
-        if(response.isSuccessful) {
-            val body = response.body()!!
-
-            return if(body != null || response.code() == 204) {
-                ApiEmptyResponse()
-            } else {
-                ApiSuccessResponse(body)
-            }
-        }
-        else {
-            var errorMsg = try {
-                response.errorBody()!!.string()
-            } catch (e: IOException) {
-                e.printStackTrace()
-                response.message()
-            }
-            return ApiErrorResponse(errorMsg)
-        }
-    }
-
-    */
-/**
-     * Generic success response from api
-     * @param <T>
-     *//*
-
-    inner class ApiSuccessResponse<T> internal constructor(var body: T) : ApiResponse<T>()
-
-
-    */
-/**
-     * Generic Error response from API
-     * @param <T>
-    </T> *//*
-
-    inner class ApiErrorResponse<T> internal constructor(var errorMessage: String) : ApiResponse<T>()
-
-
-    */
-/**
-     * separate class for HTTP 204 resposes so that we can make ApiSuccessResponse's body non-null.
-     *//*
-
-    inner class ApiEmptyResponse<T> : ApiResponse<T>()
-}
-*/
 
 /**
  * Generic class for handling responses from Retrofit
